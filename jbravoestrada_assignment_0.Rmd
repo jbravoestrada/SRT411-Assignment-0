@@ -1,0 +1,136 @@
+---
+title: "jbravoestrada_Assignment_0"
+author: "Jose Bravo"
+date: "January 31, 2016"
+output: html_document
+---
+
+The user I used for my github account is: jbravoestrada
+
+This assignment was eye opening for me; 
+I did not know that R existed and how powerful a tool it is! 
+My only gripe with this is the learning curve, this is an introductory assignment and I had some trouble with it. I've read that the learning curve for R is substantial when compared to other languages like Python.
+
+One of the core components of this assignment is R Studio. I think without this IDE, this assignment would have been an a feat of strength to complete.
+
+In terms of the sources, I used the sources that were linked in the original moodle assignment page. I also used random google searches, for example, sample(1:100). This generates random WHOLE numbers between 1 and 100.
+
+Below are the answers to "A Short R Intro"
+
+
+1. Compute the difference between 2016 and the year you started at this university and divide this by the difference between 2014 and the year you were born. Multiply this with 100 to get the percentage of your life you have spent at this university. Use brackets if you need them.
+
+I've spent `r ((2016 - 2011)/(2016 - 1987))*100`% of my life at Seneca College. Graduated CNS and currently working on IFS degree.
+
+
+2. Repeat the previous ToDo, but with several steps in between. You can give the variables any name you want, but the name has to start with a letter.
+```{r}
+a <- (2016 - 2011)
+b <- (2016 - 1987)
+result <- a/b*100
+```
+I've spent `r result`%  of my life at Seneca College. Graduated CNS and currently working on IFS degree.
+
+3. Compute the sum of 4,5,8 and 11 by first combining them into a vector and then using the function sum.
+```{r}
+a3 <- c(4,5,8,11)
+result_for_3 <- sum(a3)
+```
+The answer is `r result_for_3`
+
+4. Plot 100 normal random numbers.
+```{r}
+x <- rnorm(100)
+plot(x)
+```
+
+5. Find the help for the sqrt function.
+help(sqrt)
+
+6. Make a file called firstscript.R containing code that generates 100 random numbers and plots them.
+- CTRL+SHIFT+N to create new .R file
+- x <- norm(100)
+- plot(x)
+I tried find a way for r-mark down to create temporary files, but that seems to be beyond the scope of this tutorial...
+
+7. Put the numbers 31 to 60 in a vector named P and in a matrix with 6 rows and 5 columns named Q. 
+```{r}
+P <- seq(from=31, to=60)
+Q <- matrix(data=(P),nrow = 6,ncol = 5)
+#Here is the result:
+Q
+```
+
+8. constructs three random normal vectors of length 100. Call these vectors x1, x2 and x3. Make a data frame called t with three columns (called a, b and c) containing respectively x1, x1+x2 and x1+x2+x3. Call the following functions for this data frame: plot(t) and sd(t).
+```{r}
+x1 <- sample(1:100)
+x2 <- sample(1:100)
+x3 <- sample(1:100)
+t = data.frame(a = x1, b = x1+x2, c = x1+x2+x3)
+t
+
+```
+
+9. Add these lines to the code of the previous section. Try to ???nd out, either by experimenting or by using the help, what the meaning is of rgb, the last argument of rgb, lwd, pch, cex.
+```{r}
+x1 <- sample(1:100)
+x2 <- sample(1:100)
+x3 <- sample(1:100)
+t = data.frame(a = x1, b = x1+x2, c = x1+x2+x3)
+plot(t$a, type="l", ylim=range(t),lwd=3, col=rgb(1,0,0,0.3))
+lines(t$b, type="s", lwd=2,col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4,col=rgb(0,0,1,0.3))
+```
+
+10. Make a file called tst1.txt in Notepad from the example in Figure 4 and store it in your working directory. Write a script to read it, to multiply the column called g by 5 and to store it as tst2.txt.
+```{r}
+d = data.frame(a = c(3,4,5),b = c(12,43,54))
+write.table(d,file="tst1.txt",row.names=FALSE)
+d2 = read.table(file="tst1.txt",header=TRUE)
+```
+
+11. Compute the mean of the square root of a vector of 100 random numbers. What happens?
+```{r}
+x <- sample(1:100)
+y <- sqrt(x)
+z <- mean(y)
+```
+The resultant is constant `r z`. You wil need to regenerate x in order to get a different mean. Catch up R! 
+
+12. Make a graph with on the x-axis: today, Sinterklaas 2014 and your next birthday and on the y-axis the number of presents you expect on each of these days. Tip: make two vectors ???rst.
+
+I don't understand this question... 
+
+13. Make a vector from 1 to 100. Make a for-loop which runs through the whole vector. Multiply the elements which are smaller than 5 and larger than 90 with 10 and the other elements with 0.1
+```{r}
+vector=seq(from=1, to=100, by=1)
+s=c()
+for(i in 1:100)
+{
+  if(vector[i]<5)
+  {
+    s[i]=vector[i]*5;
+  }
+  else if(vector[i]>90)
+  {
+    s[i]=vector[i]*10;
+  }
+  else
+  {
+    s[i]=vector[i]*0.1;
+  }
+}
+s
+```
+
+14. Write a function for the previous ToDo, so that you can feed it any vector you like (as argument). Use a for-loop in the function to do the computation with each element. Use the standard R function length in the specification of the counter. a )
+```{r}
+func= function(arg1,arg2 )
+{
+  vector[i]=arg1[i];
+  for(i in length(vector))
+  {
+    
+  }
+}
+```
